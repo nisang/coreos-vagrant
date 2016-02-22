@@ -35,3 +35,15 @@ $:vi Vagrantfile
 ###4.启动集群
 $:vagrant up
 
+###5.访问
+vagrant ssh core-01
+vagrant ssh core-02
+vagrant ssh core-03
+依次类推
+
+### 说明
+以 vagrant和Oracle VM VirtualBox为环境，为coreos搭建合理的集群环境。
+1.安装vagrant
+2.安装Oracle VM VirtualBox
+3.下载：box文件并 vagrant box add 进vagrant
+
