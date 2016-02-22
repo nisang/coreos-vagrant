@@ -1,0 +1,37 @@
+### coreos 集群步骤
+
+1.下载
+访问：http://storage.googleapis.com/stable.release.core-os.net/amd64-usr/current/coreos_production_vagrant.json
+{
+  "name": "coreos-stable",
+  "description": "CoreOS stable",
+  "versions": [{
+    "version": "835.13.0",
+    "providers": [{
+      "name": "virtualbox",
+      "url": "http://stable.release.core-os.net/amd64-usr/835.13.0/coreos_production_vagrant.box",
+      "checksum_type": "sha256",
+      "checksum": "cd87bec515c7fd620e0f132a3b04a0c2e5d0704f34e06fbc13fc2cdeec8cfe83"
+    }]
+  }]
+}
+下载box:http://stable.release.core-os.net/amd64-usr/835.13.0/coreos_production_vagrant.box
+
+###2.vagrant box add
+$:vagrant box add coreos-stable coreos_production_vagrant.box
+
+###3.编辑
+$:cp user-data.sample user-data
+获取新的token
+$:curl https://discovery.etcd.io/new 得到详细内容
+编辑：user-data 写入token
+
+$:cp config.rb.sample config.rb
+编辑 修改num_instances为你想要的集群主机数
+
+$:vi Vagrantfile
+修改参数update_channel=“stable”，默认查找的box名称为：coreos-stable
+
+###4.启动集群
+$:vagrant up
+
