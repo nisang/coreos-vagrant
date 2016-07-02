@@ -40,7 +40,14 @@ vagrant ssh core-01
 vagrant ssh core-02
 vagrant ssh core-03
 依次类推
-
+###6.验证是否集群成功
+  $:sudo fleetctl list-machines
+        core@core-01 ~ $ sudo fleetctl list-machines
+        MACHINE         IP              METADATA
+        45c039fe...     172.17.8.103    -
+        89bba5d6...     172.17.8.102    -
+        a8954191...     172.17.8.101    -
+  如果出现以上内容，说明集群成功。
 ### 说明
 以 vagrant和Oracle VM VirtualBox为环境，为coreos搭建合理的集群环境。
 1.安装vagrant
